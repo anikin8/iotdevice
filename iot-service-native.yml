@@ -1,0 +1,80 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shctis?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: password
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  redis:
+    host: dc.quixmart.com
+    database: 0
+    port: 16379
+    password: HN6Di0bdsIoTTb1A
+  rabbitmq:
+    host: dc.shctis.com
+    port: 5682
+    username: root
+    password: QTygs56sdfdfdfsdg780lo
+    monitorExchange: iot.monitor.trouble.exchange.native
+    monitorRouting: iot.monitor.trouble.routingkey.native
+    monitorQueue: iot.monitor.trouble.queue.native
+  data:
+    mongodb:
+      uri: mongodb://root:QWSerksdfd123FFa@dc.shctis.com:27217/shctis_common
+  cache:
+    multi:
+      caffeine:
+        expireAfterAccess: 30
+        expireAfterWrite: 30
+      redis:
+        defaultExpiration: 30
+        topic: cache:redis:caffeine:clean:sys:native
+        expires:
+          userIdCache: 30
+          userLoginNameCache: 30
+          I18NCache: 30
+          DDCache: 30
+      cache-names: I18NCache,DDCache
+  influxdb:
+    url: http://dc.shctis.com:8086
+    username: root
+    password: Qwexcde234ED
+    database: iot_monitor
+    retention-policy: 7d
+    connect-timeout: 10
+    read-timeout: 30
+    write-timeout: 10
+    gizp: true
+  com:
+    mqtt:
+      host: tcp://dc.shctis.com:1883
+      clientid: shctis-iot-service-native
+      username: shctis
+      password: shctis
+      timeout: 15
+      keepalive: 20
+
+security:
+  oauth2:
+    client:
+      clientId: iot-service
+
+logging:
+  level:
+    com:
+      shctis:
+        iot: DEBUG
