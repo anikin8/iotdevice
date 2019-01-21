@@ -20,7 +20,7 @@ spring:
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
   redis:
-    host: dc.quixmart.com
+    host: dc.shctis.com
     database: 0
     port: 16379
     password: HN6Di0bdsIoTTb1A
