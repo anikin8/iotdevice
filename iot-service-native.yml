@@ -68,10 +68,6 @@ spring:
       timeout: 15
       keepalive: 20
 
-security:
-  oauth2:
-    client:
-      clientId: iot-service
 
 logging:
   level:
